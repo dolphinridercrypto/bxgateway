@@ -75,8 +75,8 @@ class WsProvider(AbstractWsProvider):
             self.ssl_context = None
 
     async def connect_websocket(self) -> websockets.WebSocketClientProtocol:
-        print("Reached connect_websocket in WsProvider!")
-        return await websockets.connect(self.uri, extra_headers=self.headers, ssl=self.ssl_context, max_size=2**24, close_timeout=0)
+        print("Connecting websocket within WsProvider...")
+        return await websockets.connect(self.uri, extra_headers=self.headers, ssl=self.ssl_context, max_size=2**24, close_timeout=1)
 
     async def call_bx(
         self,
